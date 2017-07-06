@@ -1,0 +1,7 @@
+{
+  "octopass": {
+    "endpoint": "https://api.github.com",
+    "organization": "your-organization",
+    "team": "your-team"
+  }
+}

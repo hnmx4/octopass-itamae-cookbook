@@ -1,3 +1,7 @@
+require 'dotenv'
+
+Dotenv.load File.join(File.dirname(File.dirname(__dir__)), '.env')
+
 execute 'curl -s https://packagecloud.io/install/repositories/linyows/octopass/script.rpm.sh | sudo bash' do
   not_if 'rpm -q octopass-0.3.2-1.x86_64'
 end
@@ -9,7 +13,7 @@ template '/etc/octopass.conf' do
   mode '644'
   variables(
       endpoint: node['octopass']['endpoint'],
-      token: secret['ghe_token_for_octopass'],
+      token: ENV['GITHUB_TOKEN_FOR_OCTOPASS'],
       organization: node['octopass']['organization'],
       team: node['octopass']['team']
   )
