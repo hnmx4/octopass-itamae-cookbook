@@ -1,0 +1,4 @@
+AuthorizedKeysCommand /usr/bin/octopass
+AuthorizedKeysCommandUser root
+UsePAM yes
+PasswordAuthentication no
